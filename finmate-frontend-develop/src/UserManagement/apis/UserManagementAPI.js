@@ -1,0 +1,35 @@
+import { api } from "../../api";
+import {
+  setUserDetails,
+} from "../actions/UserManagementAction";
+import { setAuthError } from "../actions/AuthManagementAction";
+
+export const getUserDetails = (dispatch) => {
+  return new Promise(async (resolve, reject) => {
+    await api()
+      .get(`/user/viewUserDetails`)
+      .then((response) => {
+        dispatch(setUserDetails(response.data.data[0]));
+        resolve(response.data);
+      })
+      .catch((error) => {
+        dispatch(setAuthError(error?.response?.data?.error?.[0].msg));
+        reject(error?.response?.data?.error?.[0].msg);
+      });
+  });
+};
+
+// export const updateUserDetails = (editUserDetails) => {
+//   return new Promise(async (resolve, reject) => {
+//     await api()
+//       .put(`/user/updateUserDetails/`, { ...editUserDetails })
+//       .then(
+//         (response) => {
+//           resolve(response.data);
+//         },
+//         (error) => {
+//           reject(error?.response?.data?.error?.[0].msg);
+//         }
+//       );
+//   });
+// };

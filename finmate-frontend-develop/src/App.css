@@ -1,0 +1,52 @@
+
+.App {
+  /* height: 100vh; */
+  display: flex;
+  flex-direction: row;
+  background-color: #ececec;
+}
+.skr-header {
+  padding-left: 5px;
+  background-color: #ffffff;
+  margin: 10px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.ant-layout {
+  display: flex;
+  flex: auto;
+  flex-direction: column;
+  min-height: 0;
+  background: rgb(241, 212, 216);
+}
+
+
+/* 
+.ant-layout-header{
+  background-color: transparent;
+} */
+
+.skr-content {
+  padding-left: 10px;
+  padding-right: 10px;
+  /* background-color: #ececec; */
+  min-height: fit-content !important;
+}
+
+::-webkit-scrollbar-thumb,
+pre::-webkit-scrollbar-thumb {
+  background: #b9b9b9;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar,
+pre::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track,
+pre::-webkit-scrollbar-track {
+  background: #e6e6e6;
+}
