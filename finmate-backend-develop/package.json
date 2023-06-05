@@ -1,0 +1,37 @@
+{
+  "name": "finmate_backend",
+  "version": "Release-Wed Aug 10 2022 12:29:01",
+  "description": "finmate_backend",
+  "main": "server.js",
+  "engines": {
+    "node": "16.x"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js",
+    "build": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sayuj1/finmate_backend.git"
+  },
+  "author": "Sehgals",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sayuj1/finmate_backend/issues"
+  },
+  "homepage": "https://github.com/sayuj1/finmate_backend#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.18.1",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.4",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
+}
