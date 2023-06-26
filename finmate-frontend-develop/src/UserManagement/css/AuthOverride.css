@@ -1,0 +1,41 @@
+.ant-tabs-tab-active {
+  background-color: #f46b45 !important;
+  width: 100% !important;
+}
+.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: white !important;
+}
+
+.ant-tabs > .ant-tabs-nav .ant-tabs-nav-list {
+  width: 99% !important;
+}
+
+.ant-tabs-card > .ant-tabs-nav .ant-tabs-tab {
+  width: 50% !important;
+}
+
+.ant-tabs-tab .ant-tabs-tab-btn {
+  width: 100%;
+  text-align: center;
+}
+
+.logo {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+}
+
+.title {
+  margin-left: 5px;
+  color: aliceblue;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.header {
+  position: relative;
+  margin: 0 auto;
+  top: 10%;
+  transform: translateY(-10%);
+  width: 50%;
+}

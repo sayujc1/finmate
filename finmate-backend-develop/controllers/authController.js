@@ -1,15 +1,14 @@
-const { getDbConnection, closeDbConnection } = require('../config/dbconfig');
-const util = require('util');
-const {
-  INTERNAL_SERVER_ERROR,
-} = require('../messages/responseMessages');
-const jwt = require('jsonwebtoken');
-const bcrypt = require('bcryptjs');
+const { getDbConnection, closeDbConnection } = require("../config/dbconfig");
+const util = require("util");
+const { INTERNAL_SERVER_ERROR } = require("../messages/responseMessages");
+const jwt = require("jsonwebtoken");
+const bcrypt = require("bcryptjs");
 const {
   fetchUserDetails,
   fetchUserDetailsByUsernameOREmail,
   saveUser,
-} = require('../repository/userRepository');
+} = require("../repository/userRepository");
+const { default: axios } = require("axios");
 
 exports.register = async (req, res) => {
   let connection;
@@ -26,8 +25,8 @@ exports.register = async (req, res) => {
       async rows => {
         if (rows.length > 0) {
           res.status(409).json({
-            status: 'FAILURE',
-            error: [{ msg: 'User already exists' }],
+            status: "FAILURE",
+            error: [{ msg: "User already exists" }],
           });
         } else {
           let user = {
@@ -48,36 +47,36 @@ exports.register = async (req, res) => {
                   { username, email, name, user_id },
                   process.env.JWT_SECRET,
                   {
-                    expiresIn: '24h',
+                    expiresIn: "24h",
                   }
                 );
                 res
                   .status(200)
-                  .cookie('token', token, {
+                  .cookie("token", token, {
                     httpOnly: true,
                     maxAge: 86400000,
                     secure:
-                      process.env.NODE_ENV === 'production' ||
-                      process.env.NODE_ENV === 'development' ||
-                      process.env.NODE_ENV === 'preview'
+                      process.env.NODE_ENV === "production" ||
+                      process.env.NODE_ENV === "development" ||
+                      process.env.NODE_ENV === "preview"
                         ? true
                         : false,
                   })
                   .json({
-                    status: 'SUCCESS',
-                    message: 'User created successfully',
+                    status: "SUCCESS",
+                    message: "User created successfully",
                     token: token,
                   });
               } else {
                 res.status(400).json({
-                  status: 'FAILURE',
-                  error: [{ msg: 'User not created' }],
+                  status: "FAILURE",
+                  error: [{ msg: "User not created" }],
                 });
               }
             })
             .catch(err => {
               res.status(500).json({
-                status: 'FAILURE',
+                status: "FAILURE",
                 error: [{ msg: err.message || INTERNAL_SERVER_ERROR }],
               });
             });
@@ -86,10 +85,14 @@ exports.register = async (req, res) => {
     );
   } catch (err) {
     res.status(err.statusCode || 500).json({
-      status: 'FAILURE',
+      status: "FAILURE",
       error: [{ msg: err.message || INTERNAL_SERVER_ERROR }],
     });
   } finally {
+    await axios.post(
+      `${process.env.CRON_ORIGIN}/cron/welcomeEmailService`,
+      req.body
+    );
     await closeDbConnection(connection);
   }
 };
@@ -118,42 +121,42 @@ exports.login = async (req, res) => {
             },
             process.env.JWT_SECRET,
             {
-              expiresIn: '24h',
+              expiresIn: "24h",
             }
           );
           res
             .status(200)
-            .cookie('token', token, {
+            .cookie("token", token, {
               httpOnly: true,
               maxAge: 86400000,
               secure:
-                process.env.NODE_ENV === 'production' ||
-                process.env.NODE_ENV === 'development' ||
-                process.env.NODE_ENV === 'preview'
+                process.env.NODE_ENV === "production" ||
+                process.env.NODE_ENV === "development" ||
+                process.env.NODE_ENV === "preview"
                   ? true
                   : false,
             })
             .json({
-              status: 'SUCCESS',
-              message: 'User logged in successfully',
+              status: "SUCCESS",
+              message: "User logged in successfully",
               token: token,
             });
         } else {
           res.status(400).json({
-            status: 'FAILURE',
-            error: [{ msg: 'Invalid password' }],
+            status: "FAILURE",
+            error: [{ msg: "Invalid password" }],
           });
         }
       } else {
         res.status(400).json({
-          status: 'FAILURE',
-          error: [{ msg: 'Invalid Username or Email ID' }],
+          status: "FAILURE",
+          error: [{ msg: "Invalid Username or Email ID" }],
         });
       }
     });
   } catch (err) {
     res.status(err.statusCode || 500).json({
-      status: 'FAILURE',
+      status: "FAILURE",
       error: [{ msg: err.message || INTERNAL_SERVER_ERROR }],
     });
   } finally {
@@ -164,19 +167,19 @@ exports.login = async (req, res) => {
 exports.logout = async (req, res) => {
   res
     .status(200)
-    .cookie('token', null, {
+    .cookie("token", null, {
       httpOnly: true,
       maxAge: 1,
       secure:
-        process.env.NODE_ENV === 'production' ||
-        process.env.NODE_ENV === 'development' ||
-        process.env.NODE_ENV === 'preview'
+        process.env.NODE_ENV === "production" ||
+        process.env.NODE_ENV === "development" ||
+        process.env.NODE_ENV === "preview"
           ? true
           : false,
     })
     .json({
-      status: 'SUCCESS',
-      message: 'User logged out successfully',
+      status: "SUCCESS",
+      message: "User logged out successfully",
       token: null,
     });
 };

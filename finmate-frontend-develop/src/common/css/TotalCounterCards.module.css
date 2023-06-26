@@ -1,0 +1,55 @@
+.totalCountersContainer{
+    padding: 20px;
+width: 100%;
+display: flex;
+justify-content: space-evenly;
+flex-wrap: wrap;
+}
+
+.totalCounterCol{
+    background-color: rgba(255, 255, 255, 0.8);
+border-radius: 20px;
+margin: 6px;
+backdrop-filter: blur(10px);
+box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.totalCounterColRow{
+    text-align: center;
+padding: 50px 0;
+}
+
+.totalCounterIconStyle{
+    border-radius: 50%;
+    font-size: 3rem;
+    padding: 10px;
+}
+
+#dollarIcon{
+    color: #bcad0f;
+background-color: rgb(233 254 84 / 79%);
+}
+
+#incomeIcon{
+    color: #55d715;
+    background-color: #45ff404f;
+}
+
+#expenseIcon{
+    color: rgb(237 36 49);
+background-color: rgb(254 84 97 / 49%)
+}
+
+#savingsIcon{
+    color: rgb(15 185 188);
+background-color: rgb(84 253 254 / 46%)
+}
+
+.totalCounterTitle{
+    font-size: 1.2rem;
+}
+
+.totalCounterValue{
+    font-size: 1.4rem;
+font-weight: 500;
+}

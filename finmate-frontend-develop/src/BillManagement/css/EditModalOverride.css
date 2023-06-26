@@ -1,0 +1,18 @@
+.ant-modal-content {
+    border-radius: 20px !important;
+}
+
+.ant-modal-header {
+    border-radius: 20px !important;
+}
+
+.ant-modal-body {
+    border-radius: 20px !important;
+}
+
+.ant-segmented {
+    border-radius: 20px !important;
+}
+.ant-segmented-item-selected {
+    border-radius: 20px !important;
+}

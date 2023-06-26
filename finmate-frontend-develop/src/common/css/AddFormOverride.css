@@ -1,0 +1,11 @@
+.ant-select:not(.ant-select-customize-input) .ant-select-selector {
+    border-radius: 20px;
+}
+
+.ant-input-affix-wrapper {
+    border-radius: 17px;
+}
+
+textarea.ant-input {
+    border-radius: 17px;
+}

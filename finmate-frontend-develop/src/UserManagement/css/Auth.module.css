@@ -1,0 +1,91 @@
+.container {
+  width: 100%;
+  background: rgb(248, 192, 200); 
+}
+
+.loginButton {
+  background-color: #f46b45 !important;
+  color: white !important;
+}
+.LoginCol {
+  background: #f46b45; 
+  background: -webkit-linear-gradient(
+    to right,
+    #eea849,
+    #f46b45
+  ); 
+  background: linear-gradient(
+    to right,
+    #eea849,
+    #f46b45
+  ); 
+}
+
+.loginButton:hover {
+  border-color: #f46b45 !important;
+}
+.loginForm {
+  position: relative;
+  margin: 0 auto;
+  top: 30%;
+  transform: translateY(-30%);
+  width: fit-content;
+  height: fit-content;
+  background-color: #bfbfbf42;
+  border-radius: 10px;
+  padding: 40px;
+}
+
+.loginImg {
+  height: 100vh;
+  width: 100%;
+}
+
+@media screen and (max-width: 600px) {
+  .loginForm {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.requestForm {
+  border-radius: 20px;
+}
+
+.authFormContainer{
+  border-radius: 20px;
+background-color: rgba(255, 255, 255, 0.8);
+backdrop-filter: blur(10px);
+box-shadow: 0 0 10px rgba(0,0,0,0.2);
+width: 100%;
+}
+
+.loginScreenImage{
+  background-color: rgba(255, 255, 255, 0.8);
+border-radius: 20px;
+width: 100%;
+height: 97vh;
+box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.authRowContainer{
+  display: flex;
+justify-content: space-between;
+flex-wrap: wrap;
+}
+
+.authColContainer{
+  display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+}
+
+.inputFormIcons{
+  padding-right: 5px;
+}
+
+.centerTextTopMargin{
+  margin-top: 10px;
+  text-align: center;
+}

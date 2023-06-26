@@ -1,0 +1,70 @@
+.addBillForm {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.formLabel {
+    font-weight: 500;
+    color: dodgerblue;
+    padding-top: 5px;
+    margin-right: 10px;
+  }
+
+
+
+.errorAlert {
+    
+    margin-top: 2px;
+border-radius: 10px;
+}
+
+.addBillFormCard {
+    border-radius: 20px;
+    background-color: transparent;
+    width: 100%;
+}
+
+.addBillFormInput{
+    width: 100%;
+    max-height: 100px;
+    overflow: auto;
+    margin-top: 10px;
+    border-radius: 20px;
+}
+
+.resetButton {
+    margin: 5px;
+border-radius: 20px;
+opacity: 0.8;
+backdrop-filter: blur(10px);
+box-shadow: 0 0 10px rgba(0,0,0,0.2)
+}
+
+.saveButton{
+    border-radius: 20px;
+    opacity: 0.8;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 10px rgba(0,0,0,0.2)
+}
+
+.payButton{
+    border-radius: 20px;
+    opacity: 0.8;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    background-color: #52c41a;
+}
+
+.paidButton{
+    border-radius: 20px;
+    opacity: 0.8;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    background-color: #beeba7 !important;
+}
+
+.mandatory {
+    color: red;
+}
